@@ -1,0 +1,81 @@
+.menu-wrapper {
+    width: 100%;
+}
+
+.menu-topbar {
+    display: flex;
+    height: 60px;
+    background-color: rgb(120, 55, 8, .6);
+    align-items: center;
+    padding-inline: 30px;
+    color: rgb(255, 243, 243);
+}
+
+.menu-topbar h4 {
+    margin: 0;
+}
+
+.menu-container {
+    padding: 40px;
+}
+
+.tableMenu {
+    font-family: "Open Sans", sans-serif;
+    border-collapse:separate;
+    border-spacing:0 15px;
+}
+.tableMenu tbody tr{
+    outline : 1px solid rgba(97, 97, 97, .1);
+
+}
+.tableMenu tbody td {
+    padding: 1.25rem 0.5rem;  
+    border: none;  
+    vertical-align: middle;
+}
+/* .tableMenu thead th:first-child, .tableMenu tbody td:first-child{
+    padding-inline: 1.25rem;
+} */
+
+.tableMenu thead th {
+    background-color: #f8f7fd;
+    border: none;
+}
+
+.buttonSecondary.btn-primary {
+    color: white;
+    background-color: rgb(120, 55, 8, .7);
+    border: 1px solid rgb(120, 55, 8);
+}
+
+.buttonSecondary.btn-primary:hover {
+    color: white;
+    background-color: rgb(120, 55, 8, .7);
+    border: 1px solid rgb(120, 55, 8);
+
+}
+
+.variantWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.variantCard {
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: 1px solid rgba(161, 143, 143, 0.3);
+    background-color: #e9e9e9;
+    color: #474747;
+    font-size: 12px;
+
+}
+
+.statusCard{
+    display: inline-flex;
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: 1px solid rgba(161, 143, 143, 0.3);
+    background-color: rgb(39, 206, 136);
+    color: white;
+}

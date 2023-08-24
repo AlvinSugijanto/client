@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+.wrapper {
+    padding: 30px;
+    display: flex;
+    width: 100%;
+}
+
+.leftSide {
+    width: 70%;
+}
+
+.rightSide {
+    width: 30%;
+    height: fit-content;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid rgb(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.topBar {
+    display: flex;
+    justify-content: space-between;
+    padding-inline-end: 30px;
+}
+
+.search-input {
+    position: relative;
+}
+
+.search-bar {
+    border: 1px solid rgb(0, 0, 0, .1);
+    border-radius: 15px;
+    padding: 10px 20px;
+    min-width: 400px;
+}
+
+.search-icon {
+    position: absolute;
+    top: 30%;
+    right: 20px;
+    color: rgb(173, 176, 179);
+}
+
+.midBar {
+    margin-top: 30px;
+}
+
+.cardWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.cardCategory {
+    padding: 15px 25px;
+    border: 1px solid rgb(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    color: rgba(51, 49, 49, 0.8);
+}
+
+.cardCategory:hover {
+    cursor: pointer;
+    background-color: rgb(120, 55, 8, .1);
+    border: 1px solid rgb(120, 55, 8);
+}
+
+.cardCategory.active {
+    background-color: rgb(120, 55, 8, .1);
+    border: 1px solid rgb(120, 55, 8);
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
+    margin-inline-end: 30px;
+}
+
+.card-menu {
+    padding: 15px 25px;
+    border: 1px solid rgb(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: white;
+}
+
+.card-menu-top {
+    display: flex;
+}
+
+.menu-img {
+    border-radius: 15px;
+}
+
+.menu-title {
+    font-family: 'Open Sans', sans-serif;
+    color: rgba(51, 49, 49);
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.card-menu-middle {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.card-menu-middle>* {
+    width: 50%;
+}
+
+.roundedCard {
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(120, 55, 8, .5);
+    padding: 5px 15px;
+}
+
+.roundedCard:hover {
+    background-color: rgb(120, 55, 8, .6);
+    cursor: pointer;
+    color: white;
+}
+.roundedCard.active {
+    background-color: rgb(120, 55, 8, .6);
+    cursor: pointer;
+    color: white;
+}
+.card-button {
+    background-color: rgb(120, 55, 8, .3);
+    border-radius: 20px;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.card-button.active {
+    background-color: rgb(120, 55, 8, .8);
+
+    cursor: pointer;
+}
+
+
+
+
+/* Right side */
+.cart-wrapper {
+    height: 400px;
+    overflow-y: scroll;
+}
+
+.cart {
+    margin-top: 30px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+}
+
+.cart-item> :nth-child(1) {
+    width: 20%;
+}
+
+.cart-item> :nth-child(2) {
+    width: 50%;
+}
+
+.cart-item> :nth-child(3) {
+    width: 30%;
+}
+
+.cart-qty {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid rgb(0, 0, 0, .1);
+    border-radius: 5px;
+    padding : 5px;
+    margin-top: 10px;
+}
+
+.cart-qty .icon{
+    border-radius: 100%;
+    padding: 5px;
+}
+.cart-qty .icon:hover {
+    color: rgb(120, 55, 8);
+    background-color: rgb(120, 55, 8);
+    color: white;
+    cursor: pointer;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.cart-pay {
+    background-color: rgb(120, 55, 8, .8);
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.cart-pay:hover {
+    background-color: rgb(120, 55, 8);
+    cursor: pointer;
+
+}
