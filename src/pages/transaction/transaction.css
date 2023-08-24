@@ -157,6 +157,7 @@
 
 .cart {
     margin-top: 30px;
+    position: relative;
 }
 
 .cart-item {
@@ -179,6 +180,12 @@
     width: 30%;
 }
 
+.cart-delete{
+    position: absolute;
+    top: 0px;
+    right : 15px;
+
+}
 .cart-qty {
     display: flex;
     justify-content: space-around;

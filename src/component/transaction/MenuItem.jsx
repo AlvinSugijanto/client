@@ -19,12 +19,11 @@ function MenuItem({ menu }) {
         if (type && size && sugar && ice) {
             setActive(true);
         }
-        console.log('this is running')
     }, [type, size, sugar, ice]);
 
 
     function handleAddToCart() {
-        const updatedMenu = { ...menu, type, size, sugar, ice }
+        const updatedMenu = { ...menu, type, size, sugar, ice, jumlah:1 }
         dispatch(addNewItem(updatedMenu))
         resetVariant();
     }
