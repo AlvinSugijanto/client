@@ -21,13 +21,29 @@ export const retrieveMenu = createAsyncThunk(
 export const createMenuItem = createAsyncThunk(
   'menu/createMenuItem',
   async (newItem) => {
+    const formData = new FormData();
+    formData.append("nama_menu", newItem.nama_menu);
+    formData.append("harga", newItem.harga);
+    formData.append("description", newItem.description);
+    formData.append("image", newItem.image);
+    formData.append("kategori_id", newItem.kategori_id);
+
     try {
-      const response = await axios.post('http://localhost:4000/menu/add', newItem);
-      return response.data;
+        const response = await axios.post(
+            'http://localhost:4000/menu/add',
+            formData,
+            {
+              headers: {
+                  'Content-Type': 'multipart/form-data'
+              }
+            }
+        );
+        return response.data;
     } catch (error) {
-      throw error;
+        throw error;
     }
-  }
+}
+
 );
 
 const menuSlice = createSlice({

@@ -10,44 +10,44 @@ import { Form, Button, Table, Modal } from 'react-bootstrap';
 import ToastComponent from '../../component/toast/Toast';
 import MenuItem from '../../component/menu/MenuItem';
 import { useDispatch, useSelector } from 'react-redux';
-import { retrieveMenu,createMenuItem } from '../../state/slice/menuSlice/menuSlice';
+import { retrieveMenu, createMenuItem } from '../../state/slice/menuSlice/menuSlice';
 import { retrieveCategory } from '../../state/slice/categorySlice/categorySlice';
 
 const Menu = () => {
 
   const [show, setShow] = useState(false);
-  const [filePhoto, setFile] = useState('');
+  const [filePhoto, setFile] = useState();
   const [showToast, setShowToast] = useState(false);
-
-  const [productInput, setProductInput] = useState({
-    nama_menu : '',
-    harga : '',
-    description : '',
-    image : '-',
-    kategori_id : ''
-  });
 
   const dispatch = useDispatch();
   const menuItems = useSelector((state) => state.menu.menuItems);
   const categoryItems = useSelector((state) => state.category.categoryItems);
 
+  const [productInput, setProductInput] = useState({
+    nama_menu: '',
+    harga: '',
+    description: '',
+    kategori_id: ''
+  });
 
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   const handleInputChange = (key, value) => {
-    
-    const newProductInput = {...productInput};
+
+    const newProductInput = { ...productInput };
     newProductInput[key] = value;
     setProductInput(newProductInput);
 
   };
 
-  function handleImageUpload(e) {
-    console.log(e.target.files);
-    setFile(URL.createObjectURL(e.target.files[0]));
-  }
+  // function handleImageUpload(e) {
+  //   const uploadedImageURL = e.target.files[0];
+  //   const newProductInput = {...productInput};
+  //   newProductInput.image = uploadedImageURL;
+  //   setProductInput(newProductInput);
+  // }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -117,7 +117,7 @@ const Menu = () => {
         <Modal.Body>
           <div className='form-group'>
             <label htmlFor="">Product Category <span className='text-danger'>*</span></label>
-            <select name="" id="" className='form-control' onChange={(e) => handleInputChange('kategori_id',e.target.value)}>
+            <select name="" id="" className='form-control' onChange={(e) => handleInputChange('kategori_id', e.target.value)}>
               <option value="" hidden>--Select Category--</option>
               {categoryItems.map((category) => (
                 <option value={category.id} className='form-control' key={category.id}>
@@ -130,19 +130,24 @@ const Menu = () => {
           </div>
           <div className='form-group mt-3'>
             <label htmlFor="">Product Name <span className='text-danger'>*</span></label>
-            <input type="text" className='form-control' placeholder='Insert Product Name Here...' onChange={(e) => handleInputChange('nama_menu',e.target.value)} value={productInput.nama_menu} />
+            <input type="text" className='form-control' placeholder='Insert Product Name Here...' onChange={(e) => handleInputChange('nama_menu', e.target.value)} value={productInput.nama_menu} />
           </div>
           <div className='form-group mt-3'>
             <label htmlFor="">Product Price</label>
-            <input type="number" className='form-control' placeholder='Insert Product Price Here...' onChange={(e) => handleInputChange('harga',e.target.value)} value={productInput.harga} />
+            <input type="number" className='form-control' placeholder='Insert Product Price Here...' onChange={(e) => handleInputChange('harga', e.target.value)} value={productInput.harga} />
           </div>
           <div className='form-group mt-3'>
             <label htmlFor="">Product Description</label>
-            <textarea name="" id="" cols="20" rows="3" className='form-control' placeholder='Insert Product Description...' onChange={(e) => handleInputChange('description',e.target.value)} value={productInput.description}></textarea>
+            <textarea name="" id="" cols="20" rows="3" className='form-control' placeholder='Insert Product Description...' onChange={(e) => handleInputChange('description', e.target.value)} value={productInput.description}></textarea>
           </div>
           <div className='form-group mt-3'>
             <label htmlFor="">Product Image</label>
-            <input type="file" className='form-control' onChange={handleImageUpload} />
+            <input type="file" className='form-control'
+              onChange={(e) => {
+                handleInputChange('image', e.target.files[0]);
+                setFile(URL.createObjectURL(e.target.files[0]));
+              }}
+            />
             {filePhoto ? (
               <img
                 className='border border-secondary mt-2'

@@ -26,13 +26,6 @@ const cartSlice = createSlice({
             }
             cartSlice.caseReducers.calculateTotal(state);
         },
-        calculateTotal(state) {
-            let total = 0;
-            state.cartItems.forEach(element => {
-                total += element.harga*element.jumlah
-            });
-            state.total = total;
-        },
         addQty(state, action) {
             const id = action.payload;
             const itemToUpdate = state.cartItems.find(item => item.id === id);
@@ -40,7 +33,7 @@ const cartSlice = createSlice({
                 itemToUpdate.jumlah += 1;
             }
             cartSlice.caseReducers.calculateTotal(state);
-
+            
         },
         decreaseQty(state, action) {
             const id = action.payload;
@@ -49,6 +42,13 @@ const cartSlice = createSlice({
                 itemToUpdate.jumlah -= 1;
             }
             cartSlice.caseReducers.calculateTotal(state);
+        },
+        calculateTotal(state) {
+            let total = 0;
+            state.cartItems.forEach(element => {
+                total += element.harga*element.jumlah
+            });
+            state.total = total;
         }
     }
 })
