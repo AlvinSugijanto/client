@@ -3,7 +3,7 @@ import axios from 'axios';
 
 
 const initialState = {
-    userData: {},
+    token: '',
 
 };
 
@@ -28,8 +28,8 @@ const authSlice = createSlice({
             .addCase(login.fulfilled, (state, action) => {
                 state.status = 'succeeded';
                 localStorage.setItem('user', action.payload.data.token)
-                state.userData = { ...state.userData, ...action.payload.data };
-                console.log(state.userData);
+                
+                state.token = action.payload.data.token;
             })
     },
 })
